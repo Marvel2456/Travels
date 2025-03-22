@@ -56,149 +56,32 @@ Product Area
         <div class="row">
             <div class="col-xxl-9 col-lg-8">
                 <div class="tab-content" id="nav-tabContent">
+                    
                     <div class="tab-pane fade active show" id="tab-grid" role="tabpanel" aria-labelledby="tab-destination-grid">
                         <div class="row gy-30">
+                            {% for destination in destination %}
                             <div class="col-xxl-4 col-xl-6">
                                 <div class="tour-box th-ani">
                                     <div class="tour-box_img global-img">
-                                        <img src="{% static 'assets/img/tour/tour_3_4.jpg' %}" alt="image">
+                                        <img src="{{destination.thumbnail.url}}" alt="image">
                                     </div>
                                     <div class="tour-content">
-                                        <h3 class="box-title"><a href="tour-guider-details.html">Maldives</a></h3>
+                                        <h3 class="box-title"><a href="tour-guider-details.html">{{destination.location}}</a></h3>
                                         <div class="tour-rating">
-                                            <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated
-                                                    <strong class="rating">5.00</strong> out of 5 based on <span class="rating">4.8</span>(4.8
-                                                    Rating)</span></div>
-                                            <a href="tour-guider-details.html" class="woocommerce-review-link">(<span class="count">4.8</span>
-                                                Rating)</a>
+                                            <p>{{destination.description}}</p>
                                         </div>
-                                        <h4 class="tour-box_price"><span class="currency">$580.00</span>/Person</h4>
+                                        {% comment %} <h4 class="tour-box_price"><span class="currency">$780.00</span>/Person</h4> {% endcomment %}
                                         <div class="tour-action">
-                                            <span><i class="fa-light fa-clock"></i>7 Days</span>
+                                            {% comment %} <span><i class="fa-light fa-clock"></i>7 Days</span> {% endcomment %}
                                             <a href="tour-guider-details.html" class="th-btn style4 th-icon">Book Now</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="col-xxl-4 col-xl-6">
-                                <div class="tour-box th-ani">
-                                    <div class="tour-box_img global-img">
-                                        <img src="{% static 'assets/img/tour/tour_3_5.jpg' %}" alt="image">
-                                    </div>
-                                    <div class="tour-content">
-                                        <h3 class="box-title"><a href="tour-guider-details.html">Belgium</a></h3>
-                                        <div class="tour-rating">
-                                            <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated
-                                                    <strong class="rating">5.00</strong> out of 5 based on <span class="rating">4.8</span>(4.8
-                                                    Rating)</span></div>
-                                            <a href="tour-guider-details.html" class="woocommerce-review-link">(<span class="count">4.8</span>
-                                                Rating)</a>
-                                        </div>
-                                        <h4 class="tour-box_price"><span class="currency">$480.00</span>/Person</h4>
-                                        <div class="tour-action">
-                                            <span><i class="fa-light fa-clock"></i>7 Days</span>
-                                            <a href="tour-guider-details.html" class="th-btn style4 th-icon">Book Now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-xxl-4 col-xl-6">
-                                <div class="tour-box th-ani">
-                                    <div class="tour-box_img global-img">
-                                        <img src="{% static 'assets/img/tour/tour_3_6.jpg' %}" alt="image">
-                                    </div>
-                                    <div class="tour-content">
-                                        <h3 class="box-title"><a href="tour-guider-details.html">Brazil</a></h3>
-                                        <div class="tour-rating">
-                                            <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated
-                                                    <strong class="rating">5.00</strong> out of 5 based on <span class="rating">4.8</span>(4.8
-                                                    Rating)</span></div>
-                                            <a href="tour-guider-details.html" class="woocommerce-review-link">(<span class="count">4.8</span>
-                                                Rating)</a>
-                                        </div>
-                                        <h4 class="tour-box_price"><span class="currency">$380.00</span>/Person</h4>
-                                        <div class="tour-action">
-                                            <span><i class="fa-light fa-clock"></i>7 Days</span>
-                                            <a href="tour-guider-details.html" class="th-btn style4 th-icon">Book Now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-xxl-4 col-xl-6">
-                                <div class="tour-box th-ani">
-                                    <div class="tour-box_img global-img">
-                                        <img src="{% static 'assets/img/tour/tour_3_7.jpg' %}" alt="image">
-                                    </div>
-                                    <div class="tour-content">
-                                        <h3 class="box-title"><a href="tour-guider-details.html">Spain</a></h3>
-                                        <div class="tour-rating">
-                                            <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated
-                                                    <strong class="rating">5.00</strong> out of 5 based on <span class="rating">4.8</span>(4.8
-                                                    Rating)</span></div>
-                                            <a href="tour-guider-details.html" class="woocommerce-review-link">(<span class="count">4.8</span>
-                                                Rating)</a>
-                                        </div>
-                                        <h4 class="tour-box_price"><span class="currency">$580.00</span>/Person</h4>
-                                        <div class="tour-action">
-                                            <span><i class="fa-light fa-clock"></i>7 Days</span>
-                                            <a href="tour-guider-details.html" class="th-btn style4 th-icon">Book Now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-xxl-4 col-xl-6">
-                                <div class="tour-box th-ani">
-                                    <div class="tour-box_img global-img">
-                                        <img src="{% static 'assets/img/tour/tour_3_8.jpg' %}" alt="image">
-                                    </div>
-                                    <div class="tour-content">
-                                        <h3 class="box-title"><a href="tour-guider-details.html">Greece</a></h3>
-                                        <div class="tour-rating">
-                                            <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated
-                                                    <strong class="rating">5.00</strong> out of 5 based on <span class="rating">4.8</span>(4.8
-                                                    Rating)</span></div>
-                                            <a href="tour-guider-details.html" class="woocommerce-review-link">(<span class="count">4.8</span>
-                                                Rating)</a>
-                                        </div>
-                                        <h4 class="tour-box_price"><span class="currency">$680.00</span>/Person</h4>
-                                        <div class="tour-action">
-                                            <span><i class="fa-light fa-clock"></i>7 Days</span>
-                                            <a href="tour-guider-details.html" class="th-btn style4 th-icon">Book Now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-xxl-4 col-xl-6">
-                                <div class="tour-box th-ani">
-                                    <div class="tour-box_img global-img">
-                                        <img src="{% static 'assets/img/tour/tour_3_9.jpg' %}" alt="image">
-                                    </div>
-                                    <div class="tour-content">
-                                        <h3 class="box-title"><a href="tour-guider-details.html">Newziland</a></h3>
-                                        <div class="tour-rating">
-                                            <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated
-                                                    <strong class="rating">5.00</strong> out of 5 based on <span class="rating">4.8</span>(4.8
-                                                    Rating)</span></div>
-                                            <a href="tour-guider-details.html" class="woocommerce-review-link">(<span class="count">4.8</span>
-                                                Rating)</a>
-                                        </div>
-                                        <h4 class="tour-box_price"><span class="currency">$780.00</span>/Person</h4>
-                                        <div class="tour-action">
-                                            <span><i class="fa-light fa-clock"></i>7 Days</span>
-                                            <a href="tour-guider-details.html" class="th-btn style4 th-icon">Book Now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
+                            {% endfor %}
+                        </div>  
                     </div>
-
+                    
                     <div class="tab-pane fade " id="tab-list" role="tabpanel" aria-labelledby="tab-destination-list">
                         <div class="row gy-30">
                             <div class="col-12">

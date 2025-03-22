@@ -8,70 +8,32 @@
         <div class="widget  ">
             <div class="th-widget-about">
                 <div class="about-logo">
-                    <a href="home-travel.html"><img src="assets/img/logo2.svg" alt="Tourm"></a>
+                    <a href="{% url 'index' %}"><img src="{% static 'assets/img/assurance_logo.png' %}" style="height:100px; width:120px;" alt="Assurance Travels"></a>
                 </div>
-                <p class="about-text">Rapidiously myocardinate cross-platform intellectual capital model. Appropriately create interactive infrastructures</p>
-                <div class="th-social">
-                    <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://www.whatsapp.com/"><i class="fab fa-whatsapp"></i></a>
-                </div>
+                
             </div>
         </div>
-        <div class="widget  ">
-            <h3 class="widget_title">Recent Posts</h3>
-            <div class="recent-post-wrap">
-                <div class="recent-post">
-                    <div class="media-img">
-                        <a href="blog-details.html"><img src="assets/img/blog/recent-post-1-1.jpg" alt="Blog Image"></a>
-                    </div>
-                    <div class="media-body">
-                        <div class="recent-post-meta">
-                            <a href="blog.html"><i class="far fa-calendar"></i>24 Jun , 2024</a>
-                        </div>
-                        <h4 class="post-title"><a class="text-inherit" href="blog-details.html">Where Vision Meets Concrete
-                                Reality</a></h4>
-                    </div>
-                </div>
-                <div class="recent-post">
-                    <div class="media-img">
-                        <a href="blog-details.html"><img src="assets/img/blog/recent-post-1-2.jpg" alt="Blog Image"></a>
-                    </div>
-                    <div class="media-body">
-                        <div class="recent-post-meta">
-                            <a href="blog.html"><i class="far fa-calendar"></i>22 Jun , 2024</a>
-                        </div>
-                        <h4 class="post-title"><a class="text-inherit" href="blog-details.html">Raising the Bar in Construction.</a></h4>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
         <div class="widget  ">
             <h3 class="widget_title">Get In Touch</h3>
             <div class="th-widget-contact">
                 <div class="info-box_text">
                     <div class="icon">
-                        <img src="assets/img/icon/phone.svg" alt="img">
+                        <img src="{% static 'assets/img/icon/phone.svg' %}" alt="img">
                     </div>
                     <div class="details">
-                        <p><a href="tel:+01234567890" class="info-box_link">+01 234 567 890</a></p>
-                        <p><a href="tel:+09876543210" class="info-box_link">+09 876 543 210</a></p>
+                        <p><a href="tel:+8619587412143" class="info-box_link"></a>+8619587412143</p>
                     </div>
                 </div>
                 <div class="info-box_text">
                     <div class="icon">
-                        <img src="assets/img/icon/envelope.svg" alt="img">
-                    </div>
-                    <div class="details">
-                        <p><a href="mailto:mailinfo00@tourm.com" class="info-box_link">mailinfo00@tourm.com</a></p>
-                        <p><a href="mailto:support24@tourm.com" class="info-box_link">support24@tourm.com</a></p>
+                        <img src="{% static 'assets/img/icon/envelope.svg' %}" alt="img">
                     </div>
                 </div>
                 <div class="info-box_text">
-                    <div class="icon"><img src="assets/img/icon/location-dot.svg" alt="img"></div>
+                    <div class="icon"><img src="{% static 'assets/img/icon/location-dot.svg' %}" alt="img"></div>
                     <div class="details">
-                        <p>789 Inner Lane, Holy park, California, USA</p>
+                        <p>77105 Futian District, Shenzhen, Guangdong Province, China, 518037</p>
                     </div>
                 </div>
             </div>
@@ -91,75 +53,27 @@ Mobile Menu
     <div class="th-menu-area text-center">
         <button class="th-menu-toggle"><i class="fal fa-times"></i></button>
         <div class="mobile-logo">
-            <a href="home-travel.html"><img src="assets/img/logo2.svg" alt="Tourm"></a>
+            <a href="{% url 'index' %}"><img src="{% static 'assets/img/assurance_logo.png' %}" style="height:100px; width:120px;" alt="Assurance Travels"></a>
         </div>
         <div class="th-mobile-menu">
             <ul>
-                <li class="menu-item-has-children">
-                    <a class="active" href="home-travel.html">Home</a>
-                    <ul class="sub-menu">
-                        <li><a href="home-travel.html">Home Travel</a></li>
-                        <li><a href="home-tour.html">Home Tour</a></li>
-                        <li><a href="home-agency.html">Home Agency</a></li>
-
-                    </ul>
+                <li class="{% if request.path == '/' %}active{% endif %}">
+                    <a href="{% url 'index' %}">Home</a>
                 </li>
-                <li><a href="about.html">About Us</a></li>
-                <li class="menu-item-has-children">
-                    <a href="#">Destination</a>
-                    <ul class="sub-menu">
-                        <li><a href="destination.html">Destination</a></li>
-                        <li><a href="destination-details.html">Destination Details</a></li>
-                    </ul>
+                <li class="{% if request.path == '/destination/' %}active{% endif %}">
+                    <a href="{% url 'destination' %}">Destination</a>
                 </li>
-                <li class="menu-item-has-children">
-                    <a href="#">Service</a>
-                    <ul class="sub-menu">
-                        <li><a href="service.html">Services</a></li>
-                        <li><a href="service-details.html">Service Details</a></li>
-                    </ul>
+                <li class="{% if request.path == '/vacation/' %}active{% endif %}">
+                    <a href="{% url 'vacation' %}">Vacation</a>
                 </li>
-                <li class="menu-item-has-children">
-                    <a href="#">Activities</a>
-                    <ul class="sub-menu">
-                        <li><a href="activities.html">activities</a></li>
-                        <li><a href="activities-details.html">activities Details</a></li>
-                    </ul>
+                <li class="{% if request.path == '/about/' %}active{% endif %}">
+                    <a href="{% url 'about' %}">About Us</a>
                 </li>
-                <li class="menu-item-has-children">
-                    <a href="#">Pages</a>
-                    <ul class="sub-menu">
-                        <li class="menu-item-has-children">
-                            <a href="#">Shop</a>
-                            <ul class="sub-menu">
-                                <li><a href="shop.html">Shop</a></li>
-                                <li><a href="shop-details.html">Shop Details</a></li>
-                                <li><a href="cart.html">Cart Page</a></li>
-                                <li><a href="checkout.html">Checkout</a></li>
-                                <li><a href="wishlist.html">Wishlist</a></li>
-                            </ul>
-                        </li>
-
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="tour.html">Our Tour</a></li>
-                        <li><a href="tour-details.html">Tour Details</a></li>
-                        <li><a href="tour-guide.html">Tour Guider</a></li>
-                        <li><a href="tour-guider-details.html">Tour Guider Details</a></li>
-                        <li><a href="faq.html">Faq Page</a></li>
-                        <li><a href="price.html">Price Package</a></li>
-                        <li><a href="error.html">Error Page</a></li>
-                    </ul>
-
+                <li class="{% if request.path == '/contact/' %}active{% endif %}">
+                    <a href="{% url 'contact' %}">Contact us</a>
                 </li>
-                <li class="menu-item-has-children">
-                    <a href="#">Blog</a>
-                    <ul class="sub-menu">
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="blog-details.html">Blog Details</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="contact.html">Contact us</a>
+                <li class="{% if request.path == '/contact/' %}active{% endif %}">
+                    <a href="{% url 'contact' %}">Application</a>
                 </li>
             </ul>
         </div>

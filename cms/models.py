@@ -18,6 +18,9 @@ class Destination(models.Model):
         return self.name
     
 
+
+    
+
 class PageDetail(models.Model):
     id = models.UUIDField(primary_key=True, unique=True, default=uuid.uuid4, editable=False)
     phone_number = models.CharField(max_length=250, blank=True, null=True)

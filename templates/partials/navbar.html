@@ -20,20 +20,9 @@
                 </div>
                 <div class="col-auto">
                     <div class="header-right">
-                        <div class="currency-menu">
-                            <img src="assets/img/icon/dollar.svg" alt="">
-                            <select class="form-select nice-select">
-                                <option selected="">USD</option>
-                                <option>CNY</option>
-                                <option>EUR</option>
-                                <option>AUD</option>
-                            </select>
-                        </div>
                         <div class="header-links">
                             <ul>
-                                <li class="d-none d-md-inline-block"><a href="faq.html">FAQ</a></li>
                                 <li class="d-none d-md-inline-block"><a href="{% url 'contact' %}">Support</a></li>
-                                <li><a href="#login-form" class="popup-content">Sign In / Register<i class="fa-regular fa-user"></i></a>
                                 </li>
                             </ul>
                         </div>
@@ -49,7 +38,7 @@
                 <div class="row align-items-center justify-content-between">
                     <div class="col-auto">
                         <div class="header-logo">
-                            <a href="{% url 'index' %}"><img src="assets/img/logo.svg" alt="Tourm"></a>
+                            <a href="{% url 'index' %}"><img src="{% static 'assets/img/assurance_logo.png' %}" style="height:100px; width:120px;" alt="Assurance Travels"></a>
                         </div>
                     </div>
                     <div class="col-auto me-xl-auto">
@@ -70,6 +59,9 @@
                                 <li class="{% if request.path == '/contact/' %}active{% endif %}">
                                     <a href="{% url 'contact' %}">Contact us</a>
                                 </li>
+                                <li class="{% if request.path == '/contact/' %}active{% endif %}">
+                                    <a href="{% url 'contact' %}">Application</a>
+                                </li>
                             </ul>
                         </nav>
                         <button type="button" class="th-menu-toggle d-block d-xl-none"><i class="far fa-bars"></i></button>
@@ -77,13 +69,13 @@
                     
                     <div class="col-auto d-none d-xl-block">
                         <div class="header-button">
-                            <a href="contact.html" class="th-btn style3 th-icon">Book Now</a>
+                            <a href="{% url 'contact' %}" class="th-btn style3 th-icon">Book Now</a>
 
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="logo-bg" data-mask-src="assets/img/logo_bg_mask.png"></div>
+            {% comment %} <div class="logo-bg" data-mask-src="{% static 'assets/img/assurance_logo.png' %}" style="height:150px; width:170px;"></div> {% endcomment %}
         </div>
     </div>
 </header>

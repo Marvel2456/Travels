@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Visa Application PDF</title>
+</head>
+<body>
+    <h2>Visa Application Details</h2>
+    <p><strong>Applicant Name:</strong> {{ application.applicant_name }}</p>
+    <p><strong>Email:</strong> {{ application.email }}</p>
+    <p><strong>Country to Visit:</strong> {{ application.country_to_visit }}</p>
+    <p><strong>Duration:</strong> {{ application.duration }}</p>
+    <p><strong>Departure Airport:</strong> {{ application.departure_airport }}</p>
+    <p><strong>Destination Airport:</strong> {{ application.destination_airport }}</p>
+    <p><strong>Submitted On:</strong> {{ application.created_at }}</p>
+</body>
+</html>

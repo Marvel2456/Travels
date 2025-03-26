@@ -2,5 +2,103 @@
 {% load static %}
 {% block title %} Application {% endblock title %}
 {% block content %}
+<!--==============================
+    Breadcumb
+============================== -->
+<div class="breadcumb-wrapper " data-bg-src="{% static 'assets/img/bg/breadcumb-bg.jpg' %}">
+    <div class="container">
+        <div class="breadcumb-content">
+            <h1 class="breadcumb-title">Application</h1>
+            <ul class="breadcumb-menu">
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li>Application</li>
+            </ul>
+        </div>
+    </div>
+</div>
 
+<!--==============================
+Video Area  
+==============================-->
+<div class="space-extra2-top space-extra2-bottom" data-bg-src="a{% static 'ssets/img/bg/video_bg_1.jpg' %}">
+    <div class="container">
+        <div class="row flex-row-reverse justify-content-center align-items-center">
+            
+            <div class="col-lg-6">
+                <div>
+                    <!-- Display Success Message -->
+                    {% if messages %}
+                    <div>
+                        {% for message in messages %}
+                        <div class="alert alert-success" role="alert">
+                            {{ message }}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    <form method="POST" id="visaApplicationForm" class="contact-form style2 ajax-contact">
+                        {% csrf_token %}
+                        <h3 class="sec-title mb-30 text-capitalize">Visa Application</h3>
+                        <div class="row">
+                            <div class="col-12 form-group">
+                                <input type="text" class="form-control" name="applicant_name" id="name3" placeholder="Full Name" required>
+                                <img src="{% static 'assets/img/icon/user.svg' %}" alt="">
+                            </div>
+                            <div class="col-12 form-group">
+                                <input type="email" class="form-control" name="email" id="email3" placeholder="Your Mail" required>
+                                <img src="{% static 'assets/img/icon/mail.svg' %}" alt="">
+                            </div>
+                            <div class="col-12 form-group">
+                                <input type="text" class="form-control" name="country_to_visit" id="country" placeholder="Country to Visit" required>
+                                <img src="{% static 'assets/img/icon/location.svg' %}" alt="">
+                            </div>
+                            <div class="form-group col-12">
+                                <select name="duration" id="duration" class="form-select nice-select" required>
+                                    <option value="" selected disabled>Select Duration</option>
+                                    <option value="3 months">3 months</option>
+                                    <option value="6 months">6 months</option>
+                                    <option value="12 months">12 months</option>
+                                </select>
+                            </div>
+                            <div class="col-12 form-group">
+                                <input type="text" class="form-control" name="departure_airport" id="country" placeholder="Departure Airport" required>
+                                <img src="{% static 'assets/img/icon/location.svg' %}" alt="">
+                            </div>
+                            <div class="col-12 form-group">
+                                <input type="text" class="form-control" name="destination_airport" id="country" placeholder="Destination Airport" required>
+                                <img src="{% static 'assets/img/icon/location.svg' %}" alt="">
+                            </div>
+                            <div class="form-btn col-12 mt-24">
+                                <button type="submit" class="th-btn style3">Submit Application
+                                    <img src="{% static 'assets/img/icon/plane.svg' %}" alt="">
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    document.getElementById("visaApplicationForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        var form = this;
+
+        // Submit the form using AJAX
+        fetch(form.action, {
+            method: "POST",
+            body: new FormData(form)
+        })
+        .then(response => response.url)  
+        .then(url => {
+            // Redirect to PDF download page
+            window.location.href = url;
+        })
+        .catch(error => console.error('Error:', error));
+    });
+</script>
 {% endblock content %}

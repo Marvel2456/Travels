@@ -10,7 +10,7 @@
                     <div class="header-links">
                         <ul>
                             <li class="d-none d-xl-inline-block"><i class="fa-sharp fa-regular  fa-location-dot"></i>
-                                <span>45 New Eskaton Road, Austria</span>
+                                <span>7105 Futian District, Shenzhen, Guangdong Province, China, 518037</span>
                             </li>
                             <li class="d-none d-xl-inline-block"><i class="fa-regular fa-clock"></i>
                                 <span>Sun to Friday: 8.00 am - 7.00 pm</span>
@@ -38,7 +38,7 @@
                 <div class="row align-items-center justify-content-between">
                     <div class="col-auto">
                         <div class="header-logo">
-                            <a href="{% url 'index' %}"><img src="{% static 'assets/img/assurance_logo.png' %}" style="height:100px; width:120px;" alt="Assurance Travels"></a>
+                            <a href="{% url 'index' %}"><img src="{% static 'assets/img/assurance_logo.png' %}" style="height:90px; width:110px;" alt="Assurance Travels"></a>
                         </div>
                     </div>
                     <div class="col-auto me-xl-auto">
@@ -59,8 +59,8 @@
                                 <li class="{% if request.path == '/contact/' %}active{% endif %}">
                                     <a href="{% url 'contact' %}">Contact us</a>
                                 </li>
-                                <li class="{% if request.path == '/contact/' %}active{% endif %}">
-                                    <a href="{% url 'contact' %}">Application</a>
+                                <li class="{% if request.path == '/visa_application/' %}active{% endif %}">
+                                    <a href="{% url 'visa_application' %}">Application</a>
                                 </li>
                             </ul>
                         </nav>
@@ -69,7 +69,7 @@
                     
                     <div class="col-auto d-none d-xl-block">
                         <div class="header-button">
-                            <a href="{% url 'contact' %}" class="th-btn style3 th-icon">Book Now</a>
+                            <a href="{% url 'inquire' %}" class="th-btn style3 th-icon">Send Inquiry</a>
 
                         </div>
                     </div>

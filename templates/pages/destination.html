@@ -11,7 +11,7 @@
         <div class="breadcumb-content">
             <h1 class="breadcumb-title">Destination</h1>
             <ul class="breadcumb-menu">
-                <li><a href="home-travel.html">Home</a></li>
+                <li><a href="{% url 'index' %}">Home</a></li>
                 <li>Destination</li>
             </ul>
         </div>
@@ -30,14 +30,13 @@ Destination Area
                         <img src="{{destination.thumbnail.url}}" alt="image">
                     </div>
                     <div class="destination-content">
-                        <h3 class="box-title"><a href="contact.html">{{destination.location}}</a></h3>
+                        <h3 class="box-title"><a href="{% url 'destination_detail' destination.id %}">{{destination.location}}</a></h3>
                         {% comment %} <a href="contact.html" class="th-btn style4 th-icon">Book Now</a> {% endcomment %}
                     </div>
                 </div>
             </div>
             {% endfor %}
             
-
         </div>
     </div>
     <div class="shape-mockup shape1 d-none d-xxl-block" data-bottom="17%" data-right="9%">

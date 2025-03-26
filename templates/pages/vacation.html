@@ -9,10 +9,10 @@
 <div class="breadcumb-wrapper " data-bg-src="{% static 'assets/img/bg/breadcumb-bg.jpg' %}">
     <div class="container">
         <div class="breadcumb-content">
-            <h1 class="breadcumb-title">Destination</h1>
+            <h1 class="breadcumb-title">Vacation</h1>
             <ul class="breadcumb-menu">
-                <li><a href="home-travel.html">Home</a></li>
-                <li>Destination</li>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li>Vacation</li>
             </ul>
         </div>
     </div>
@@ -25,13 +25,13 @@ Product Area
             <div class="row justify-content-between align-items-center">
                 <div class="col-md-4">
                     <div class="search-form-area">
-                        <form class="search-form">
-                            <input type="text" placeholder="Search">
+                        <form class="search-form" method="GET" action="{% url 'vacation' %}">
+                            <input type="text" name="search" placeholder="Search by name or location" value="{{ query }}">
                             <button type="submit"><i class="fa-light fa-magnifying-glass"></i></button>
                         </form>
                     </div>
                 </div>
-
+                
                 <div class="col-md-auto">
                     <div class="sorting-filter-wrap">
                         <div class="nav" role="tablist">
@@ -66,14 +66,14 @@ Product Area
                                         <img src="{{destination.thumbnail.url}}" alt="image">
                                     </div>
                                     <div class="tour-content">
-                                        <h3 class="box-title"><a href="tour-guider-details.html">{{destination.location}}</a></h3>
+                                        <h3 class="box-title"><a href="{% url 'destination_detail' destination.id %}">{{destination.location}}</a></h3>
                                         <div class="tour-rating">
                                             <p>{{destination.description}}</p>
                                         </div>
                                         {% comment %} <h4 class="tour-box_price"><span class="currency">$780.00</span>/Person</h4> {% endcomment %}
                                         <div class="tour-action">
                                             {% comment %} <span><i class="fa-light fa-clock"></i>7 Days</span> {% endcomment %}
-                                            <a href="tour-guider-details.html" class="th-btn style4 th-icon">Book Now</a>
+                                            <a href="{% url 'inquire' %}" class="th-btn style4 th-icon">Send Inquiry</a>
                                         </div>
                                     </div>
                                 </div>

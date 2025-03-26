@@ -8,7 +8,7 @@
         <div class="widget  ">
             <div class="th-widget-about">
                 <div class="about-logo">
-                    <a href="{% url 'index' %}"><img src="{% static 'assets/img/assurance_logo.png' %}" style="height:100px; width:120px;" alt="Assurance Travels"></a>
+                    <a href="{% url 'index' %}"><img src="{% static 'assets/img/assurance_logo.png' %}" style="height:90px; width:110px;" alt="Assurance Travels"></a>
                 </div>
                 
             </div>
@@ -53,7 +53,7 @@ Mobile Menu
     <div class="th-menu-area text-center">
         <button class="th-menu-toggle"><i class="fal fa-times"></i></button>
         <div class="mobile-logo">
-            <a href="{% url 'index' %}"><img src="{% static 'assets/img/assurance_logo.png' %}" style="height:100px; width:120px;" alt="Assurance Travels"></a>
+            <a href="{% url 'index' %}"><img src="{% static 'assets/img/assurance_logo.png' %}" style="height:90px; width:110px;" alt="Assurance Travels"></a>
         </div>
         <div class="th-mobile-menu">
             <ul>
@@ -72,8 +72,8 @@ Mobile Menu
                 <li class="{% if request.path == '/contact/' %}active{% endif %}">
                     <a href="{% url 'contact' %}">Contact us</a>
                 </li>
-                <li class="{% if request.path == '/contact/' %}active{% endif %}">
-                    <a href="{% url 'contact' %}">Application</a>
+                <li class="{% if request.path == '/visa_application/' %}active{% endif %}">
+                    <a href="{% url 'visa_application' %}">Application</a>
                 </li>
             </ul>
         </div>

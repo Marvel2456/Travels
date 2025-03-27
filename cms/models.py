@@ -26,6 +26,8 @@ class PageDetail(models.Model):
     phone_number = models.CharField(max_length=250, blank=True, null=True)
     email_1 = models.CharField(max_length=250, blank=True, null=True)
     email_2 = models.CharField(max_length=250, blank=True, null=True)
+    address_1 = models.CharField(max_length=250, blank=True, null=True)
+    address_2 = models.CharField(max_length=250, blank=True, null=True)
     
 
     def __str__(self):
@@ -39,6 +41,9 @@ class Inquiry(models.Model):
     phone_number = models.CharField(max_length=250, blank=True, null=True)
     message = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+
+    class Meta:
+        verbose_name_plural = 'Inquiries'
 
     def __str__(self):
         return self.name
@@ -56,8 +61,9 @@ class VisaApplication(models.Model):
        
     }
     duration = models.CharField(max_length=250, choices=duratrion_choice, blank=True, null=True)
-    departure_airpot = models.CharField(max_length=250, blank=True, null=True)
+    departure_airport = models.CharField(max_length=250, blank=True, null=True)
     destination_airport = models.CharField(max_length=250, blank=True, null=True)
+    message = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 
     def __str__(self):

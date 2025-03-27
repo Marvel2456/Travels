@@ -13,5 +13,6 @@ class InquiryForm(ModelForm):
 class VisaApplicationForm(ModelForm):
     class Meta:
         model = VisaApplication
-        fields = ['applicant_name', 'email', 'country_to_visit', 'duration', 'departure_airport', 'destination_airport']
+        fields = ['applicant_name', 'email', 'country_to_visit', 
+                  'duration', 'departure_airport', 'destination_airport', 'message']
         exclude = ['created_at']

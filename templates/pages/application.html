@@ -8,7 +8,7 @@
 <div class="breadcumb-wrapper " data-bg-src="{% static 'assets/img/bg/breadcumb-bg.jpg' %}">
     <div class="container">
         <div class="breadcumb-content">
-            <h1 class="breadcumb-title">Application</h1>
+            <h1 class="breadcumb-title">Visa Application</h1>
             <ul class="breadcumb-menu">
                 <li><a href="{% url 'index' %}">Home</a></li>
                 <li>Application</li>
@@ -68,6 +68,10 @@ Video Area
                             <div class="col-12 form-group">
                                 <input type="text" class="form-control" name="destination_airport" id="country" placeholder="Destination Airport" required>
                                 <img src="{% static 'assets/img/icon/location.svg' %}" alt="">
+                            </div>
+                            <div class="form-group col-12">
+                                <textarea name="message" id="message" cols="30" rows="3" class="form-control" placeholder="Message"></textarea>
+                                <img src="{% static 'assets/img/icon/chat.svg' %}" alt="">
                             </div>
                             <div class="form-btn col-12 mt-24">
                                 <button type="submit" class="th-btn style3">Submit Application

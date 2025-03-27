@@ -29,6 +29,7 @@ def send_visa_application_email(application):
     Duration: {application.duration}
     Departure Airport: {application.departure_airport}
     Destination Airport: {application.destination_airport}
+    Message: {application.message}
 
     Submitted on: {application.created_at}
     """

@@ -137,3 +137,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 UNFOLD = {
     "SITE_HEADER": "Assurance Travels"
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'info@assurancetravels.com'
+
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'mail.privateemail.com'  # Namecheap SMTP server
+# EMAIL_PORT = 587  # Use 465 for SSL or 587 for TLS
+# EMAIL_USE_TLS = True
+# EMAIL_USE_SSL = False
+# EMAIL_HOST_USER = 'noreply@yourdomain.com'  # SENDER email
+# EMAIL_HOST_PASSWORD = 'your-email-password'  # SENDER email password
+# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER  # Set sender as default

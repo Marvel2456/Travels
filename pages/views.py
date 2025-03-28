@@ -1,3 +1,4 @@
+import os
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.db.models import Q
@@ -8,6 +9,12 @@ from django.template.loader import get_template
 from xhtml2pdf import pisa
 from io import BytesIO
 from django.http import HttpResponse
+from django.conf import settings
+from django.templatetags.static import static
+from reportlab.pdfgen import canvas
+from reportlab.lib.utils import ImageReader
+from reportlab.lib import colors
+from datetime import datetime
 
 # Create your views here.
 
@@ -132,21 +139,54 @@ def download_pdf(request, application_id):
     except VisaApplication.DoesNotExist:
         return HttpResponse("Application not found.", content_type="text/plain")
 
-    # Load template
-    template_path = 'pages/visa_pdf.html'
-    context = {'application': application}
-    template = get_template(template_path)
-    html = template.render(context)
-
-    # Generate PDF
-    pdf = BytesIO()
-    pisa_status = pisa.CreatePDF(html, dest=pdf)
-    if pisa_status.err:
-        return HttpResponse("Error generating PDF", content_type='text/plain')
-
-    pdf.seek(0)
-
-    # Return PDF response
-    response = HttpResponse(pdf.read(), content_type='application/pdf')
+    response = HttpResponse(content_type='application/pdf')
     response['Content-Disposition'] = 'attachment; filename="visa_application.pdf"'
+
+    pdf = canvas.Canvas(response)
+
+    # ✅ Load logo
+    logo_path = os.path.join(settings.BASE_DIR, 'travel/static/assets/img/assurance_logo.png')
+    
+    if not os.path.exists(logo_path):
+        return HttpResponse("Logo not found at: " + logo_path, content_type="text/plain")
+
+    # ✅ Set margin/padding
+    left_margin = 60
+    top_margin = 780
+    line_spacing = 20  # Spacing between lines
+
+    # ✅ Draw the logo on the left
+    logo_width = 60
+    logo_height = 50
+    pdf.drawImage(ImageReader(logo_path), left_margin, top_margin, width=logo_width, height=logo_height)
+
+    # ✅ Add company name beside the logo
+    pdf.setFont("Helvetica-Bold", 16)
+    company_name = "Assurance International Travels"
+    pdf.drawString(left_margin + logo_width + 20, top_margin + 15, company_name)
+
+    # ✅ Draw underline for the company name
+    text_width = pdf.stringWidth(company_name, "Helvetica-Bold", 16)
+    pdf.line(left_margin + logo_width + 20, top_margin + 13, left_margin + logo_width + 20 + text_width, top_margin + 13)
+
+    # ✅ Move to content area
+    start_y = top_margin - 60  
+
+    # ✅ Convert submitted date to only show YYYY-MM-DD
+    submitted_date = application.created_at.strftime("%Y-%m-%d")
+
+    # ✅ Set font and draw application details with proper spacing
+    pdf.setFont("Helvetica", 12)
+    pdf.drawString(left_margin, start_y, f"Applicant Name: {application.applicant_name}")
+    pdf.drawString(left_margin, start_y - line_spacing, f"Email: {application.email}")
+    pdf.drawString(left_margin, start_y - (2 * line_spacing), f"Country to Visit: {application.country_to_visit}")
+    pdf.drawString(left_margin, start_y - (3 * line_spacing), f"Duration: {application.duration} months")
+    pdf.drawString(left_margin, start_y - (4 * line_spacing), f"Departure Airport: {application.departure_airport}")
+    pdf.drawString(left_margin, start_y - (5 * line_spacing), f"Destination Airport: {application.destination_airport}")
+    pdf.drawString(left_margin, start_y - (6 * line_spacing), f"Message: {application.message}")
+    pdf.drawString(left_margin, start_y - (7 * line_spacing), f"Submitted On: {submitted_date}")
+
+    pdf.showPage()
+    pdf.save()
+
     return response
